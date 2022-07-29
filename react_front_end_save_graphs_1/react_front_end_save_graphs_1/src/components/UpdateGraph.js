@@ -2,6 +2,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
+import { Buffer } from 'buffer';
 
 const UpdateGraph = () => {
     //accept prop of the graph id
@@ -32,6 +33,12 @@ const UpdateGraph = () => {
 
     const [newGraphImage, setNewGraphImage] = useState(null);
 
+    const convertBase64ToImageBlob = (data) => {
+        const buffer = Buffer.from(data, 'base64');
+        const arraybuffer = Uint8Array.from(buffer).buffer;
+        return new Blob([arraybuffer], { type: 'image/jpeg', filename: 'blob' });
+    }    
+
     const handleModifySubmit = (e) => {
         e.preventDefault(); //preventDefault is needed to not have the page reload immediately
         //just printing to the console for reference
@@ -61,8 +68,8 @@ const UpdateGraph = () => {
             console.log(graph.graphImage);
             
             //graphImageAsBlob = new Blob([graph.graphImage], {type: graph.graphImage.type});
-            graphImageAsBlob = new Blob([graph.graphImage], {type: 'image/jpeg'});
-            
+            //graphImageAsBlob = new Blob([graph.graphImage], {type: 'image/jpeg'});
+            graphImageAsBlob = convertBase64ToImageBlob(graph.graphImage);
             //for some reason type shows as undefined here...
             console.log(graphImageAsBlob.type);
         }
