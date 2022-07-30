@@ -49,7 +49,8 @@ const GraphDetails = () => {
                       borderRadius: '8px',
                       textDecoration: 'none',
                     }}>MODIFY</Link>
-                    <img src={imgSrc} />                    
+                    <br/>
+                    <img alt="graph_image" className="img" src={imgSrc} />                    
                     <h3> Adjacency Matrix </h3>
                     <div>{ graph.adjMatrix }</div>
                     <h3> Note Mappings </h3>

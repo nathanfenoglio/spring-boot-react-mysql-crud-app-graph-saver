@@ -116,9 +116,10 @@ const UpdateGraph = () => {
                         defaultValue={graph.notesAboutGraph}
                         onChange={ (e) => graph.notesAboutGraph = e.target.value}
                     />
+                    <br/>
                     {/* adding graph image for screenshot */}
                     <label>Graph Image Screenshot</label>
-                    <img src={imgSrc} />                    
+                    <img className="img" src={imgSrc} />                    
                     <input 
                         //gives error for type file if you try to set to something other than the empty string
                         defaultValue={""}

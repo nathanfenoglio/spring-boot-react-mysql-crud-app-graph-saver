@@ -20,9 +20,11 @@
 }
 .navbar h1 {
   color: #f1356d;
+  background-color: #333;
 }
 .navbar .links {
   margin-left: auto;
+  background-color: #333;
 }
 .navbar a {
   margin-left: 16px;
@@ -36,6 +38,12 @@
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+}
+.img {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  max-width: 800px;
+  align-items: center;
 }
 
 /* graph previews / list */
@@ -76,7 +84,7 @@
 
 /* create new graph form */
 .create {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
