@@ -16,16 +16,13 @@ const UpdateGraph = () => {
     let byteArr = null;
     let imgSrc = null;
     if(graph){
-        console.log("hi");
         byteArr = graph.graphImage;
         console.log(byteArr.type);
         // `data:image/jpeg;base64, needed in front of the base64 byte array that you receive back from spring boot to convert to jpeg image to display
         imgSrc = `data:image/jpeg;base64,${byteArr}`;
-        console.log(imgSrc.type);
     }
 
     if(graph){
-        console.log("what about in here just afterwards?");
         console.log(graph);
     }
 
@@ -33,6 +30,8 @@ const UpdateGraph = () => {
 
     const [newGraphImage, setNewGraphImage] = useState(null);
 
+    //need to convert the base64 encoded image to Uint8 encoding and specify type
+    //originally type in inspector shows as Content-Type: application/octet-stream
     const convertBase64ToImageBlob = (data) => {
         const buffer = Buffer.from(data, 'base64');
         const arraybuffer = Uint8Array.from(buffer).buffer;
@@ -54,19 +53,12 @@ const UpdateGraph = () => {
         //need to convert image to blob to send back to spring boot backend
         let graphImageAsBlob;
         if(newGraphImage){
-            console.log("hello");
             console.log(newGraphImage.type);
             graphImageAsBlob = new Blob([newGraphImage], {type: newGraphImage.type});
         }
         else{
-            //haven't been able to figure out how to deal with the when you modify something but don't modify the image
-            //the image no longer appears to be saved even though all other unchanged fields do persist
-            //the image still shows as a blob in mysql workbench so it's value is not null...
-            console.log("else");
-            //for some reason type shows as undefined here...
-            console.log(graph.graphImage.type); 
-            console.log(graph.graphImage);
-            
+            //needed to convert to uint8 encoding type: image/jpeg  
+            //tried these originally which did not work          
             //graphImageAsBlob = new Blob([graph.graphImage], {type: graph.graphImage.type});
             //graphImageAsBlob = new Blob([graph.graphImage], {type: 'image/jpeg'});
             graphImageAsBlob = convertBase64ToImageBlob(graph.graphImage);
@@ -130,8 +122,7 @@ const UpdateGraph = () => {
                     <input 
                         //gives error for type file if you try to set to something other than the empty string
                         defaultValue={""}
-                        // newGraphImage will be null if a new image is not selected and the else block in handleModifySubmit will be entered
-                        // something is not working with saving the original image if no new image is selected...
+                        //need to convert pre-existing image encoding to uint8 encoding from base 64 if new image is not selected to update
                         onChange={ (e) => setNewGraphImage(e.target.files[0]) }
                         type="file"
                     />
