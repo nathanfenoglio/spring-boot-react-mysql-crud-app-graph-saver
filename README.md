@@ -32,5 +32,5 @@ npm install react-router-dom@5 to install version 5 </br>
 cd directory to react_front_end_save_graphs_1/react_front_end_save_graphs_1/ </br>
 npm start (in terminal) </br>
 
-
+![alt text](https://github.com/nathanfenoglio/spring-boot-react-mysql-crud-app-graph-saver/blob/master/images/screenshot_1.png)
 
