@@ -33,4 +33,4 @@ cd directory to react_front_end_save_graphs_1/react_front_end_save_graphs_1/ </b
 npm start (in terminal) </br>
 
 ![alt text](https://github.com/nathanfenoglio/spring-boot-react-mysql-crud-app-graph-saver/blob/master/images/screenshot_1.png)
-
+![alt text](https://github.com/nathanfenoglio/spring-boot-react-mysql-crud-app-graph-saver/blob/master/images/screenshot_2.png)
