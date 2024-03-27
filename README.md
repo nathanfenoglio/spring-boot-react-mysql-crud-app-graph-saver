@@ -3,12 +3,12 @@ CRUD app using ReactJS, Spring Boot, and MySQL database </br>
 to store and provide the ability to save </br>
 the representation of a directed/undirected graph of nodes and edges </br>
 represented by </br>
-	graph id </br>
-	graph name </br>
-	image of drawn graph </br>
-	adjacency matrix representing the manner in which nodes are connected to each other </br>
-	note mappings mapping each node to a musical note </br>
-	user's personal notes about the usage of the graph </br>
+	* graph id 
+	* graph name 
+	* image of drawn graph 
+	* adjacency matrix representing the manner in which nodes are connected to each other 
+	* note mappings mapping each node to a musical note 
+	* user's personal notes about the usage of the graph 
 ability to create new graph, delete preexising graph, modify preexisting graph, view details of preexisting graph </br>
 
 used spring initializer from https://start.spring.io/ to set up spring boot backend </br>
